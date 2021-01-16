@@ -72,3 +72,31 @@ exports.getCategory = async (req, res, next) => {
   res.json(category);
 };
 
+exports.shopOrders = async (req, res, next) => {
+  //For ShopOwner to check Orders
+  const shopId = req.body.shopId;
+
+  const myOrders = await orderSchema.find({ shopId: shopId });
+
+  res.json({ message: "All the Order List", orders: myOrders });
+};
+
+exports.verifyOrder = async (req, res, next) => {
+  const orderId = req.body.orderId;
+  const itemId =  req.body.itemId;
+
+  const verifyOrder = await orderSchema.findById(orderId);
+
+  verifyOrder.ordersArray.forEach( async (element) => {
+    console.log(element);
+    if( (element.itemId).toString() === (itemId).toString() ){
+      element.isaccepted = true;
+    }
+   });
+   console.log()
+  const verifiedOrder = await verifyOrder.save();
+
+  res.json({ message: "Order Accepted", result: verifiedOrder });
+};
+
+
