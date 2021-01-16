@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MealZip">
-        <activity android:name=".IntroUI.Auth.AuthActivity"></activity>
+        <activity android:name=".IntroUI.DetailActivity"></activity>
+        <activity android:name=".IntroUI.Auth.AuthActivity" />
         <activity android:name=".IntroUI.IntroActivity" />
         <activity android:name=".IntroUI.SplashActivity">
             <intent-filter>
