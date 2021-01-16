@@ -206,42 +206,6 @@ exports.login = (req, res, next) => {
     });
 };
 
-//Resending the OTP
-// exports.resendOTP = (req, res, next) => {
-//   // extra measure's taken if, password valnerability occurs.........
-
-//   const email = req.body.email;
-
-//   let OTP = otpGenerator.generate(4, {
-//     upperCase: false,
-//     specialChars: false,
-//     alphabets: false,
-//   });
-
-//   Otp.findOneAndDelete({ email: email })
-//     .then((result) => {
-//       console.log("OTP Doc Deleted");
-//       const otp = new Otp({
-//         otp: OTP,
-//         email: email,
-//       });
-
-//       otp
-//         .save()
-//         .then((result) => {
-//           res.json("OTP sent to your Email");
-//           return emailSender.sendemail(email, OTP);
-//         })
-//         .catch((err) => {
-//           res.json("Otp not Saved in database");
-//         });
-//       return emailSender.sendemail(email, OTP);
-//     })
-//     .catch((err) => {
-//       res.json("Something went wrong");
-//     });
-// };
-//PASSWORD REST CONTROLLERS
 exports.sendResetOtp = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -277,19 +241,6 @@ exports.sendResetOtp = (req, res, next) => {
     });
   return emailSender.sendemail(email, OTP);
 };
-
-// exports.checkResetOtp = (req, res, next) => {
-//   const otp = req.body.otp;
-//   const email = req.body.email;
-//   console.log(otp);
-//   OtpUser.findOne({ email: email }).then((data) => {
-//     if (!(data.otp === otp)) {
-//       res.status(400).json("Otp incorrect");
-//     } else {
-//       res.status(200).json("Otp correct");
-//     }
-//   });
-// };
 
 exports.resetPassword = (req, res, next) => {
   const email = req.body.email;

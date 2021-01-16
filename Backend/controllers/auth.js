@@ -9,7 +9,6 @@ const emailSender = require("../utils/mailsender");
 const JWT = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
-// const { authSchema } = require('../helpers/validation_Schema');
 
 exports.shopSignup = (req, res, next) => {
   const errors = validationResult(req);
