@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NavFragments.ProfileFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="10dp"
+        android:background="#E5E5E5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/rlprofile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:background="#fff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:textColor="#000"/>
+
+                <TextView
+                    android:id="@+id/tvmail"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:layout_marginLeft="16dp"
+                    android:text="test@gmail.com" />
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_local_phone_24"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvname"
+                    android:layout_toRightOf="@+id/tvmail"
+                    android:layout_marginLeft="10dp"/>
+                <TextView
+                    android:id="@+id/tv_no"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/tvname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_toRightOf="@+id/image"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:layout_marginHorizontal="3dp"
+                    android:text="000000000" />
+
+                <TextView
+                    android:id="@+id/tvcollege"
+                    android:layout_below="@id/tvmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:layout_marginHorizontal="16dp"
+                    android:textSize="16sp"
+                    android:text="Ajay kumar garg engineering college" />
+
+                <ImageView
+                    android:id="@+id/iv_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:padding="8dp"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/rlprofile"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_orders"
+                    android:paddingHorizontal="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My orders"
+                    android:textSize="16sp"
+                    android:paddingVertical="12dp"
+                    android:drawableLeft="@drawable/ic_orders"
+                    android:drawablePadding="16dp"
+                    android:fontFamily="@font/gilroy_medium"/>
+
+                <TextView
+                    android:id="@+id/tv_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:text="My cart"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_carticon"
+                    android:drawablePadding="16dp"
+                    android:paddingHorizontal="20dp"
+                    android:fontFamily="@font/gilroy_medium"/>
+
+                <TextView
+                    android:id="@+id/tv_payment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/ic_payment"
+                    android:drawablePadding="16dp"
+                    android:paddingHorizontal="20dp"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:text="Payment methods" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="50dp"
+                android:text="Log out"
+                android:textAlignment="viewStart"
+                android:textSize="17sp"
+                android:fontFamily="@font/gilroy_medium"
+                android:background="@drawable/bg2"
+                android:drawablePadding="12dp"
+                android:padding="12dp"
+                android:drawableLeft="@drawable/ic_signout"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
