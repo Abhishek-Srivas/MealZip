@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MealZIp</string>
+    <string name="app_name">MealZip</string>
+    <string name="hello_blank_fragment">Hello</string>
 </resources>
