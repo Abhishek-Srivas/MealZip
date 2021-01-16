@@ -24,4 +24,51 @@ exports.shopInfo = (req, res, next) => {
   });
 };
 
+exports.addItem = (req, res, next) => {
+  const itemName = req.body.itemName;
+  const imgUrl = req.body.imgUrl;
+  const isveg = req.body.isveg;
+  const category = req.body.category;
+  const email = req.User.email;
+  const priceArray = req.body.price; // Object required {price:"60",size:"Half"} in this syntax
+  console.log(priceArray, email);
+
+  Users.findOne({ email: email })
+    .then((shopSchema) => {
+      shopSchema.shopItem.push({
+        name: itemName,
+        imgUrl: imgUrl,
+        isveg: isveg,
+        category: category,
+        priceArray: priceArray,
+      });
+      shopSchema.save().then((result) => {
+        res.json(result);
+      });
+    })
+    .catch((err) => {
+      res.status(500).json("Not saved");
+    });
+};
+
+exports.getItem = (req, res, next) => {
+  const email = req.body.email;
+  Users.findOne({ email: email })
+    .then((shop) => {
+      res.send(shop.shopItem);
+    })
+    .catch((err) => {
+      res.status(500).json("Internal Server Error");
+    });
+};
+
+exports.getCollege = async (req, res, next) => {
+  const colleges = await collageSchema.find();
+  res.json(colleges);
+};
+
+exports.getCategory = async (req, res, next) => {
+  const category = await categorySchema.find();
+  res.json(category);
+};
 
