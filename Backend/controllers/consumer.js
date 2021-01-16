@@ -63,4 +63,29 @@ exports.placeOrder = async (req, res, next) => {
     });
 };
 
+exports.consumerOrder = async (req, res, next) => {
+    //For User to check Orders
+    const consumerId = req.body.userId;
 
+    const myOrders = await orderSchema.find({ consumerId: consumerId });
+
+    res.json({ message: "All the Order List", orders: myOrders });
+};
+
+exports.rating = async (req, res, next) => {
+    const { rating, userId, itemId, shopId } = req.body;
+
+    try {
+        const updatedRating = await shopSchema.findOne({ _id: shopId });
+
+        updatedRating.shopItem.forEach((element) => {
+            console.log(element._id);
+            if (element._id == itemId) {
+                element.ratingArray.push({ rating: rating, consumerId: userId });
+                res.json({ message: "Thank You for your Rating", element: element });
+            }
+        });
+    } catch (err) {
+        res.json(err);
+    }
+};
