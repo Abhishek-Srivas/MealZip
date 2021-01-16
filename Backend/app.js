@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 //Import Routes
 const authRoutes = require("./routes/auth");
 const consumerAuthRoutes = require("./routes/auth.consumer");
+const shopRoutes = require("./routes/shop");
 
 dotenv.config();
 
@@ -29,7 +30,7 @@ app.use((req, res, next) => {
 //Route Middleware
 app.use(authRoutes);
 app.use(consumerAuthRoutes);
-
+app.use(shopRoutes);
 //Page Not Found
 app.use((req, res, next) => {
   next(createError.NotFound("Page not Found"));

@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport(
     transporter.sendMail({
         to: email,
         from: "mealzip@gmail.com",
-        subject: "TEAM CollageScout",
+        subject: "TEAM MealZip",
         html:`<h1>Your OTP is ${otp} </h1>`,
     });
 }
