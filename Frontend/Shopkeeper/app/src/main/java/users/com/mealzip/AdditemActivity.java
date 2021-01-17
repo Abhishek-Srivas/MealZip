@@ -68,7 +68,7 @@ public class AdditemActivity extends AppCompatActivity {
     ImageView imageView, addrates;
     Bitmap bitmap;
     private static final int MY_PERMISSIONS_REQUEST = 100;
-    StorageReference mStorageRef;
+    //StorageReference mStorageRef;
     Uri img_uri;
     String imgUrl;
     boolean type;
@@ -85,7 +85,7 @@ public class AdditemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_additem);
         pb = new helper(this);
         obj = pb.new PbFn();
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        //mStorageRef = FirebaseStorage.getInstance().getReference();
         dialog = new Dialog(AdditemActivity.this);
         dialog2 = new Dialog(AdditemActivity.this);
         et_category = findViewById(R.id.etcategory);
@@ -176,7 +176,7 @@ public class AdditemActivity extends AppCompatActivity {
     }
 
     private void upload_img() {
-        final StorageReference ImageName = mStorageRef.child("Fooditems").child("img" + img_uri.getLastPathSegment());
+        /* final StorageReference ImageName = mStorageRef.child("Fooditems").child("img" + img_uri.getLastPathSegment());
         ImageName.putFile(img_uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -195,7 +195,7 @@ public class AdditemActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
 
             }
-        });
+        }); */
     }
 
     private void add_category() {

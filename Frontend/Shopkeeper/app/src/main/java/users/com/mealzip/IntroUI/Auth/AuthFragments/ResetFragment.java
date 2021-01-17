@@ -1,5 +1,6 @@
 package users.com.mealzip.IntroUI.Auth.AuthFragments;
 
+import android.content.ContextWrapper;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,12 @@ public class ResetFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Prefs.Builder()
+                .setContext(getContext())
+                .setMode(ContextWrapper.MODE_PRIVATE)
+                .setPrefsName("Mealzip")
+                .setUseDefaultSharedPreference(true)
+                .build();
     }
 
     @Override

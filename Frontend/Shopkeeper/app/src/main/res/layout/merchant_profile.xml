@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp"
     android:layout_gravity="center"
-    android:layout_marginHorizontal="25dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginHorizontal="15dp"
     android:elevation="10dp"
     android:paddingBottom="16dp">
 
@@ -47,6 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <ImageView
+            android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -68,13 +69,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="08:00 am"
-                android:textColor="@color/black" />
+                android:layout_centerInParent="true">
+
+                <EditText
+                    android:id="@+id/stime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:hint="08:00 "
+                    android:textColorHint="#999999"
+                    android:textSize="15sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/stime"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="am"
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -82,22 +101,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/ic_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5">
+            app:layout_constraintHorizontal_bias="0.987"
+            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/gilroy_bold"
-                android:text="04:00 pm"
-                android:textColor="@color/black" />
+                android:layout_centerInParent="true">
+
+                <EditText
+                    android:id="@+id/etime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:hint="04:00 "
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/etime"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="pm"
+                    android:textColor="@color/black" />
+            </LinearLayout>
         </RelativeLayout>
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/iv_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -109,6 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
 
         <ImageView
+            android:id="@+id/iv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -116,7 +156,7 @@
             android:layout_marginBottom="24dp"
             android:src="@drawable/ic_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/iv_done"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

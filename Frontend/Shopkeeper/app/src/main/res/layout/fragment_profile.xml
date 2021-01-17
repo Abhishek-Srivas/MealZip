@@ -98,7 +98,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardimg" />
 
-            <EditText
+            <TextView
                 android:id="@+id/etwork_hrs"
                 android:drawableRight="@drawable/ic_for_arrow"
                 android:layout_width="match_parent"
@@ -110,7 +110,6 @@
                 android:fontFamily="@font/gilroy_medium"
                 android:hint="Enter working hours"
                 android:inputType="textPersonName"
-                android:maxLength="10"
                 android:padding="15dp"
                 android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +140,6 @@
                 android:fontFamily="@font/gilroy_medium"
                 android:hint="Setup payment method"
                 android:inputType="textPersonName"
-                android:maxLength="10"
                 android:padding="15dp"
                 android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -183,6 +181,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvpayment" />
 
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.DoubleBounce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/orange"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

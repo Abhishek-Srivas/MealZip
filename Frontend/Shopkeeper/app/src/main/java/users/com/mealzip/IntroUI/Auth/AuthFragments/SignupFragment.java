@@ -15,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.pixplicity.easyprefs.library.Prefs;
 
 import es.dmoral.toasty.Toasty;
@@ -35,6 +37,8 @@ public class SignupFragment extends Fragment {
     EditText etpassword, etconfirmpassword, et_email, et_number;
     View view;
     Button btn;
+    ProgressBar progressBar;
+    DoubleBounce pb;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,9 +59,13 @@ public class SignupFragment extends Fragment {
         new Prefs.Builder()
                 .setContext(getContext())
                 .setMode(ContextWrapper.MODE_PRIVATE)
-                .setPrefsName("Collegescout")
+                .setPrefsName("Mealzip")
                 .setUseDefaultSharedPreference(true)
                 .build();
+
+        progressBar = view.findViewById(R.id.spin_kit);
+        pb = new DoubleBounce();
+        progressBar.setIndeterminateDrawable(pb);
 
         etpassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -113,6 +121,7 @@ public class SignupFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 signup();
             }
         });
@@ -127,36 +136,43 @@ public class SignupFragment extends Fragment {
         String cpassword = etconfirmpassword.getText().toString();
 
         if (email.isEmpty()) {
+            progressBar.setVisibility(View.GONE);
             et_email.setError("Email is required");
             et_email.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            progressBar.setVisibility(View.GONE);
             et_email.setError("Enter a valid email");
             et_email.requestFocus();
             return;
         }
         if (password.isEmpty()) {
+            progressBar.setVisibility(View.GONE);
             etpassword.setError("Password is required");
             etpassword.requestFocus();
             return;
         }
         if (password.length() < 8) {
+            progressBar.setVisibility(View.GONE);
             etpassword.setError("Password must be atleast 8 characters long");
             etpassword.requestFocus();
             return;
         }
         if (!cpassword.equals(password)) {
+            progressBar.setVisibility(View.GONE);
             etconfirmpassword.setError("Passwords do not match");
             etconfirmpassword.requestFocus();
             return;
         }
         if (number.isEmpty()) {
+            progressBar.setVisibility(View.GONE);
             et_number.setError("Phone number is required");
             et_number.requestFocus();
             return;
         }
         if (number.length() < 10) {
+            progressBar.setVisibility(View.GONE);
             et_number.setError("Enter a valid number");
             et_number.requestFocus();
             return;
@@ -169,6 +185,7 @@ public class SignupFragment extends Fragment {
             call.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    progressBar.setVisibility(View.GONE);
                     if (response.isSuccessful()) {
                         Toasty.success(getContext(), "OTP sent to your email", Toast.LENGTH_LONG, true).show();
                         Prefs.putString("email", email);
@@ -183,6 +200,7 @@ public class SignupFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    progressBar.setVisibility(View.GONE);
                     Toasty.error(getContext(), t.getMessage(), Toast.LENGTH_LONG, true).show();
                 }
             });

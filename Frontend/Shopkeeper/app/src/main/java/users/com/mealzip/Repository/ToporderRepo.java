@@ -36,7 +36,7 @@ public class ToporderRepo {
             public void onResponse(Call<List<TodaysModel>> call, Response<List<TodaysModel>> response) {
                 //finally we are setting the list to our MutableLiveData
                 if (response.isSuccessful()) {
-                    toplist.setValue(response.body());
+                    toplist.postValue(response.body());
                     Log.d("rlog",response.body().toString());
                 }
 

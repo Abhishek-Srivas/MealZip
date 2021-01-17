@@ -43,6 +43,12 @@ public class OtpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Prefs.Builder()
+                .setContext(getContext())
+                .setMode(ContextWrapper.MODE_PRIVATE)
+                .setPrefsName("Mealzip")
+                .setUseDefaultSharedPreference(true)
+                .build();
     }
 
     @Override

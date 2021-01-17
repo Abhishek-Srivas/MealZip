@@ -143,6 +143,7 @@ android:fillViewport="true">
             android:checked="true"
             android:onClick="checkbtn"
             android:textSize="17sp"
+            android:buttonTint="@color/orange"
             android:fontFamily="@font/gilroy_medium"
             android:layout_marginBottom="10dp"/>
         <RadioButton

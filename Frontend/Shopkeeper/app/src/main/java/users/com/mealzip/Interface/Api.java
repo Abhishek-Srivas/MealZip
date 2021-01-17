@@ -25,6 +25,7 @@ import users.com.mealzip.Request.ResetRequest;
 import users.com.mealzip.Request.ResetpassRequest;
 import users.com.mealzip.Request.Signup;
 import users.com.mealzip.Request.StatusRequest;
+import users.com.mealzip.Request.TimeRequest;
 import users.com.mealzip.Response.LoginResponse;
 import users.com.mealzip.Response.OtpResponse;
 
@@ -56,6 +57,9 @@ public interface Api {
 
     @POST("shopInfo")
     Call<ResponseBody> savedetail(@Body DetailRequest detail , @Header("Authorization") String header);
+
+    @POST("/shop/timing")
+    Call<ResponseBody> setTime(@Body TimeRequest timerequest);
 
     @POST("refreshToken")
     Call<ResponseBody> refreshtoken(@Body RefreshRequest refreshRequest);
