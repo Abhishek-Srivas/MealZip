@@ -1,12 +1,31 @@
 package in.kay.mealzip.Response;
 
 public class LoginResponse {
-    String message,signAccessToken,refreshToken;
+    String message, signAccessToken, refreshToken, college, userId, userName;
 
-    public LoginResponse(String message, String signAccessToken, String refreshToken) {
+    public LoginResponse(String message, String signAccessToken, String refreshToken, String college, String userId, String userName) {
         this.message = message;
         this.signAccessToken = signAccessToken;
         this.refreshToken = refreshToken;
+        this.college = college;
+        this.userId = userId;
+        this.userName = userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getMessage() {
@@ -31,5 +50,13 @@ public class LoginResponse {
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 }

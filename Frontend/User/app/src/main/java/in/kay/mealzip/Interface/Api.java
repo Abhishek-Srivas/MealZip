@@ -16,6 +16,7 @@ import in.kay.mealzip.Response.OtpResponse;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 public interface Api {
 
@@ -24,6 +25,9 @@ public interface Api {
 
     @POST("/consumer-signup/otp-check")
     Call<OtpResponse> verifyuser(@Body Otpverify verify);
+
+    @GET("/getCollage")
+    Call<ResponseBody> getcollege();
 
     @POST("resendOtp")
     Call<ResponseBody> resend_otp(@Body Resendotp resend);

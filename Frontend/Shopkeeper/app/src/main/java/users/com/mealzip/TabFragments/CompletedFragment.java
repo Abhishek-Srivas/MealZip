@@ -73,12 +73,12 @@ public class CompletedFragment extends Fragment {
                     filteredList = Stream.of(orderList.getOrders().get(i).getOrdersArray()).filter(new Predicate<Orderarray>() {
                         @Override
                         public boolean test(Orderarray item) {
-                            return item.getOrderStatus().equalsIgnoreCase("completed");
+                            return item.getOrderStatus().equalsIgnoreCase("Delivered");
                         }
                     }).collect(Collectors.toList());
                     list.addAll(filteredList);
                 }
-                orderAdapter = new OrderAdapter(filteredList, context);
+                orderAdapter = new OrderAdapter(list, context);
                 recyclerView.setAdapter(orderAdapter);
                 // Toast.makeText(context, "Food is: "+orderList.getOrders().get(0).getItemName(), Toast.LENGTH_LONG).show();
             }

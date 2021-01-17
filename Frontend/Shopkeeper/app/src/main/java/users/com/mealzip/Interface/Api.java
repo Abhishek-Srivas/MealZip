@@ -76,7 +76,7 @@ public interface Api {
     @POST("/shop/shopOrder")
     Call<OrdersModel> getorderstatus(@Body OrderRequest orderRequest);
 
-    @POST("/orderStatus")
+    @POST("/shop/orderStatus")
     Call<ResponseBody> changestatus(@Body StatusRequest statusRequest);
 
     @POST("/todaysTop")

@@ -34,10 +34,12 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
     Context context;
     Dialog dialog;
     String status;
+    List<String> idlist;
 
-    public OrderAdapter(List<Orderarray> list, Context context) {
+    public OrderAdapter(List<Orderarray> list,List<String> idlist, Context context) {
         this.list = list;
         this.context = context;
+        this.idlist = idlist;
     }
 
     @NonNull
@@ -52,8 +54,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         String name1 = list.get(position).getItemName();
         String price1 = list.get(position).getPrice().toString();
         String imgurl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatthis.com%2Fitalian-food-not-in-italy%2F&psig=AOvVaw1wGAPhY3omNDRkfP-5y9dm&ust=1605819318218000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKibna79jO0CFQAAAAAdAAAAABAJ";
-        final String id = list.get(position).get_id();
-        ;
+        final String id = idlist.get(position);
+        String itemid = list.get(position).getItemId();
         holder.foodname.setText(name1);
         holder.price.setText(price1);
         Picasso.get()
@@ -61,24 +63,24 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 .placeholder(R.drawable.spicy)
                 .into(holder.imageView);
         status = list.get(position).getOrderStatus();
-        if (status.equalsIgnoreCase("completed")) {
+        if (status.equalsIgnoreCase("delivered")) {
             holder.status.setImageResource(R.drawable.ic_completed);
         }
         holder.status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showdialog(id, holder);
+                showdialog(id,itemid, holder);
             }
         });
     }
 
-    private void showdialog(String id, ViewHolder holder) {
+    private void showdialog(String id,String itemid, ViewHolder holder) {
         dialog = new Dialog(context);
         dialog.show();
-        update_stats(id, holder);
+        update_stats(id,itemid, holder);
     }
 
-    private void update_stats(String id, ViewHolder holder) {
+    private void update_stats(String id, String itemid,ViewHolder holder) {
         final RadioGroup radioGroup;
         RadioButton radioButton, radioButton1, radioButton2;
         dialog.setContentView(R.layout.order_statusdialog);
@@ -104,7 +106,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
                     } else if (checkedRadioButtonId == R.id.completedbtn) {
                         // Toast.makeText(context, "completed", Toast.LENGTH_SHORT).show();
-                        doWork(id, holder);
+                        doWork(id, itemid, holder);
                     } else
                         //Toast.makeText(context, "na", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
@@ -116,8 +118,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
     }
 
-    private void doWork(String id, ViewHolder holder) {
-        StatusRequest request = new StatusRequest(id);
+    private void doWork(String id,String itemid, ViewHolder holder) {
+        StatusRequest request = new StatusRequest(id,itemid);
         Call call = Retroclient.getInstance()
                 .getapi()
                 .changestatus(request);
@@ -127,7 +129,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             public void onResponse(Call call, Response response) {
                 if (response.isSuccessful()) {
                     Toasty.success(context, "Order status has been updated", Toasty.LENGTH_SHORT, true).show();
-                    if (status.equalsIgnoreCase("completed")) {
+                    if (status.equalsIgnoreCase("delivered")) {
                         holder.status.setImageResource(R.drawable.ic_completed);
                     }
                     dialog.dismiss();

@@ -97,18 +97,15 @@ public class OtpFragment extends Fragment {
                         String msg= res.getMessage();
                         String accesstoken = res.getSignAccessToken();
                         String refreshtoken = res.getRefreshToken();
+                        String id= res.getUserId();
+                        String name= res.getUserName();
+                        String college = res.getCollege();
                         Prefs.putString("access_token", accesstoken);
                         Prefs.putString("refresh_token", refreshtoken);
                         Prefs.putString("my_email",email);
-                        //Prefs.putString("email","this is email");
-
-                       /* String str = response.body().string();
-                        JSONObject jsonObject = new JSONObject(str);
-                        String message = jsonObject.getString("message");
-                        String accesstoken = jsonObject.getString("signAccessToken");
-                        String refreshtoken = jsonObject.getString("refreshToken");
-                        Prefs.putString("access_token", accesstoken);
-                        Prefs.putString("refresh_token", refreshtoken);*/
+                        Prefs.putString("college",college);
+                        Prefs.putString("id",id);
+                        Prefs.putString("name",name);
 
                         Toasty.success(getContext(), msg, Toast.LENGTH_LONG, true).show();
                      //   startActivity(new Intent(getActivity(), BaseActivity.class));

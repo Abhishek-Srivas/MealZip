@@ -57,22 +57,24 @@ public class PendingFragment extends Fragment {
     }
 
     private void loaddata() {
-        Toast.makeText(context, "pending frag", Toast.LENGTH_SHORT).show();
         orderViewModel = ViewModelProviders.of((FragmentActivity) context).get(OrderViewModel.class);
         orderViewModel.getFeed(context).observe(getViewLifecycleOwner(), orderList -> {
 
             List<Orderarray> filteredList;
             List<Orderarray> list = new ArrayList<>();
+            List<String> idlist = new ArrayList<>();
 
             for(int i=0;i<orderList.getOrders().size();i++)
             {
+                String id=  orderList.getOrders().get(i).get_id();
                 filteredList = Stream.of(orderList.getOrders().get(i).getOrdersArray())
                         .filter(item -> item.getOrderStatus().equalsIgnoreCase("pending"))
                         .collect(Collectors.toList());
                 list.addAll(filteredList);
+                idlist.add(id);
             }
 
-            orderAdapter = new OrderAdapter(list,context);
+            orderAdapter = new OrderAdapter(list,idlist,context);
             recyclerView.setAdapter(orderAdapter);
             // Toast.makeText(context, "Food is: "+orderList.getOrders().get(0).getItemName(), Toast.LENGTH_LONG).show();
         });

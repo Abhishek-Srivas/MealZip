@@ -4,6 +4,8 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.pixplicity.easyprefs.library.Prefs;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -27,7 +29,7 @@ public class ToporderRepo {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String currentDate = sdf.format(calendar.getTime());
-        GettopRequest gettopRequest= new GettopRequest("13/01/2021","5f9dbc0d17de675208bc323e");
+        GettopRequest gettopRequest= new GettopRequest(currentDate, Prefs.getString("userID",""));
         Call<List<TodaysModel>> call = Retroclient.getInstance().getapi().gettop(gettopRequest);
 
 

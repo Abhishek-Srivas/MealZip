@@ -3,12 +3,21 @@ package users.com.mealzip.Models;
 import java.util.List;
 
 public class Order {
+    private String _id;
     private String shopId;
     private String consumerId;
     private String orderDate;
     private Integer v;
     private String customerName;
     private List<Orderarray> ordersArray;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public String getCustomerName() {
         return customerName;
