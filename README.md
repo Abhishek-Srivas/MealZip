@@ -5,6 +5,4 @@ An android application to curb the hassle in the college canteens we aim to prov
 
 <h1>Screenshots</h1>
 
-![alt text](https://raw.githubusercontent.com/AbhishekSrivas114319/MealZip/master/2.png)
-![alt text](https://raw.githubusercontent.com/AbhishekSrivas114319/MealZip/master/3.png)
-![alt text](https://raw.githubusercontent.com/AbhishekSrivas114319/MealZip/master/1.png)
+![alt text](https://raw.githubusercontent.com/AbhishekSrivas114319/MealZip/master/all.png)
