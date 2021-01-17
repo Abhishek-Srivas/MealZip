@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import users.com.mealzip.Adapter.OrderAdapter;
+import users.com.mealzip.Models.IdModel;
 import users.com.mealzip.Models.Orderarray;
 import users.com.mealzip.R;
 import users.com.mealzip.ViewModels.OrderViewModel;
@@ -63,18 +64,22 @@ public class PendingFragment extends Fragment {
             List<Orderarray> filteredList;
             List<Orderarray> list = new ArrayList<>();
             List<String> idlist = new ArrayList<>();
-
-            for(int i=0;i<orderList.getOrders().size();i++)
-            {
-                String id=  orderList.getOrders().get(i).get_id();
+            List<IdModel> finalList = new ArrayList<>();
+            for(int i=0;i<orderList.getOrders().size();i++) {
+                String id = orderList.getOrders().get(i).get_id();
                 filteredList = Stream.of(orderList.getOrders().get(i).getOrdersArray())
                         .filter(item -> item.getOrderStatus().equalsIgnoreCase("pending"))
                         .collect(Collectors.toList());
                 list.addAll(filteredList);
-                idlist.add(id);
+                for (int j = 0; j < filteredList.size();j++){
+                    idlist.add(id);
+                }
             }
-
-            orderAdapter = new OrderAdapter(list,idlist,context);
+              for(int i=0;i<idlist.size();i++){
+                  IdModel idmodel = new IdModel(list.get(i).getIsaccepted(),list.get(i).getOrderStatus(),list.get(i).getPaid(),list.get(i).get_id(),list.get(i).getItemName(),list.get(i).getItemId(),list.get(i).getPrice(),list.get(i).getRating(),idlist.get(i));
+                 finalList.add(idmodel);
+}
+            orderAdapter = new OrderAdapter(finalList,context);
             recyclerView.setAdapter(orderAdapter);
             // Toast.makeText(context, "Food is: "+orderList.getOrders().get(0).getItemName(), Toast.LENGTH_LONG).show();
         });

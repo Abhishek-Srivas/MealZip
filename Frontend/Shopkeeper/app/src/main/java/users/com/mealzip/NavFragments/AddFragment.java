@@ -91,7 +91,8 @@ public class AddFragment extends Fragment {
                     isempty.setVisibility(View.VISIBLE);
                 } else {
                     List<FoodModel> recentlist=new ArrayList<>();
-                    for(int i=0;i<5;i++){
+                    int x=Math.min(5,foodList.size());
+                    for(int i=0;i<x;i++){
                         recentlist.add(foodList.get(i));
                     }
 

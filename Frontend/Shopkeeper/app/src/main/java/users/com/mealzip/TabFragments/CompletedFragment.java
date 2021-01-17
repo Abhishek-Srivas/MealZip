@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import users.com.mealzip.Adapter.OrderAdapter;
+import users.com.mealzip.Models.IdModel;
 import users.com.mealzip.Models.Orderarray;
 import users.com.mealzip.Models.OrdersModel;
 import users.com.mealzip.R;
@@ -68,8 +69,10 @@ public class CompletedFragment extends Fragment {
 
                 List<Orderarray> filteredList = new ArrayList<>();
                 List<Orderarray> list = new ArrayList<>();
-
+                List<String> idlist = new ArrayList<>();
+                List<IdModel> finalList = new ArrayList<>();
                 for (int i = 0; i < orderList.getOrders().size(); i++) {
+                    String id = orderList.getOrders().get(i).get_id();
                     filteredList = Stream.of(orderList.getOrders().get(i).getOrdersArray()).filter(new Predicate<Orderarray>() {
                         @Override
                         public boolean test(Orderarray item) {
@@ -77,8 +80,15 @@ public class CompletedFragment extends Fragment {
                         }
                     }).collect(Collectors.toList());
                     list.addAll(filteredList);
+                    for (int j = 0; j < filteredList.size(); j++) {
+                        idlist.add(id);
+                    }
                 }
-                orderAdapter = new OrderAdapter(list, context);
+                for(int i=0;i<idlist.size();i++){
+                    IdModel idmodel = new IdModel(list.get(i).getIsaccepted(),list.get(i).getOrderStatus(),list.get(i).getPaid(),list.get(i).get_id(),list.get(i).getItemName(),list.get(i).getItemId(),list.get(i).getPrice(),list.get(i).getRating(),idlist.get(i));
+                    finalList.add(idmodel);
+                }
+                orderAdapter = new OrderAdapter(finalList, context);
                 recyclerView.setAdapter(orderAdapter);
                 // Toast.makeText(context, "Food is: "+orderList.getOrders().get(0).getItemName(), Toast.LENGTH_LONG).show();
             }

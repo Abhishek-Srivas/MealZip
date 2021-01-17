@@ -2,6 +2,7 @@ package users.com.mealzip.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,21 +26,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import users.com.mealzip.Interface.Retroclient;
+import users.com.mealzip.Models.IdModel;
 import users.com.mealzip.Models.Orderarray;
 import users.com.mealzip.R;
 import users.com.mealzip.Request.StatusRequest;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
-    List<Orderarray> list;
+    List<IdModel> list;
     Context context;
     Dialog dialog;
     String status;
-    List<String> idlist;
 
-    public OrderAdapter(List<Orderarray> list,List<String> idlist, Context context) {
+    public OrderAdapter(List<IdModel> list, Context context) {
         this.list = list;
         this.context = context;
-        this.idlist = idlist;
     }
 
     @NonNull
@@ -54,7 +54,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         String name1 = list.get(position).getItemName();
         String price1 = list.get(position).getPrice().toString();
         String imgurl = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatthis.com%2Fitalian-food-not-in-italy%2F&psig=AOvVaw1wGAPhY3omNDRkfP-5y9dm&ust=1605819318218000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKibna79jO0CFQAAAAAdAAAAABAJ";
-        final String id = idlist.get(position);
+        String id = list.get(position).getId();
         String itemid = list.get(position).getItemId();
         holder.foodname.setText(name1);
         holder.price.setText(price1);
