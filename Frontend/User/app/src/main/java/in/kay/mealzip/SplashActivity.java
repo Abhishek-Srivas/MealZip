@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         boolean user= Prefs.getBoolean("registered",false);
         if(user)
         {
-            //startActivity(new Intent(this,BaseActivity.class));
+            startActivity(new Intent(this, BaseActivity.class));
         }
         else{
             startActivity(new Intent(this,IntroActivity.class));

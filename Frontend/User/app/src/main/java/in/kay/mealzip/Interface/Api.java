@@ -2,11 +2,14 @@ package in.kay.mealzip.Interface;
 
 import java.util.List;
 
+import in.kay.mealzip.Models.ShoplistModel;
 import in.kay.mealzip.Request.LoginRequest;
+import in.kay.mealzip.Request.OrderRequest;
 import in.kay.mealzip.Request.Otpverify;
 import in.kay.mealzip.Request.Resendotp;
 import in.kay.mealzip.Request.ResetRequest;
 import in.kay.mealzip.Request.ResetpassRequest;
+import in.kay.mealzip.Request.ShoplistRequest;
 import in.kay.mealzip.Request.Signup;
 import in.kay.mealzip.Response.LoginResponse;
 import in.kay.mealzip.Response.OtpResponse;
@@ -37,5 +40,9 @@ public interface Api {
     @POST("consumer/reset-Password")
     Call<ResponseBody> resetpassword(@Body ResetpassRequest reset);
 
+    @POST("consumer/shopList")
+    Call<List<ShoplistModel>> getshops(@Body ShoplistRequest shoplist);
 
+    @POST("consumer/placeOrder")
+    Call<ResponseBody> placeorder(@Body OrderRequest order);
 }

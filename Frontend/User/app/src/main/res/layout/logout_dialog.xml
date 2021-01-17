@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:layout_marginHorizontal="15dp"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Are you sure to logout?"
+        android:textColor="#000"
+        android:fontFamily="@font/gilroy_medium"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="100dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="#000"
+            android:textSize="17sp"
+            android:fontFamily="@font/gilroy_medium"/>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log out"
+            android:layout_marginLeft="24dp"
+            android:textSize="17sp"
+            android:textColor="#000"
+            android:fontFamily="@font/gilroy_medium"/>
+    </LinearLayout>
+
+
+</LinearLayout>
