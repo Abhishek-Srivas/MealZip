@@ -17,13 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.github.ybq.android.spinkit.style.DoubleBounce;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import users.com.mealzip.Adapter.FoodAdapter;
@@ -32,9 +30,7 @@ import users.com.mealzip.Models.FoodModel;
 import users.com.mealzip.R;
 import users.com.mealzip.ViewModels.FoodViewModel;
 
-public class AddFragment extends Fragment {
-
-    ImageView add;
+public class ItemFragment extends Fragment {
     LinearLayout isempty;
     FoodViewModel foodViewModel;
     Context context;
@@ -43,6 +39,7 @@ public class AddFragment extends Fragment {
     ProgressBar progressBar;
     DoubleBounce pb;
     ConstraintLayout cl;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,13 +51,11 @@ public class AddFragment extends Fragment {
         this.context=context;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_add, container, false);
-        add=view.findViewById(R.id.img_add);
+        View view =inflater.inflate(R.layout.fragment_allitem, container, false);
         recyclerView=view.findViewById(R.id.recycler_view);
         isempty= view.findViewById(R.id.empytycart);
         cl= view.findViewById(R.id.parentcontainer);
@@ -72,10 +67,6 @@ public class AddFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-        add.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(), AdditemActivity.class));
-
-        });
         loaddata();
         return view;
     }
@@ -90,16 +81,11 @@ public class AddFragment extends Fragment {
                 if (foodList.size() == 0) {
                     isempty.setVisibility(View.VISIBLE);
                 } else {
-                    List<FoodModel> recentlist=new ArrayList<>();
-                    for(int i=0;i<5;i++){
-                        recentlist.add(foodList.get(i));
-                    }
-
-                    itemadapter = new FoodAdapter(recentlist, context);
+                    itemadapter = new FoodAdapter(foodList, context);
                     recyclerView.setAdapter(itemadapter);
                     // Toast.makeText(context, "Food is: "+foodList.get(5).getPriceArray().get(0).getPrice(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    }
+}

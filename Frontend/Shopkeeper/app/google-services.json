@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235856386839",
+    "project_id": "mealzip-4ac5b",
+    "storage_bucket": "mealzip-4ac5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235856386839:android:04654b924e404013807552",
+        "android_client_info": {
+          "package_name": "users.com.mealzip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235856386839-e09n05e8cvnn1gd31kf0spuk2k4s4omv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmfnenvZU0tW3Yc0IRYE3S1MGiXU7AvMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235856386839-e09n05e8cvnn1gd31kf0spuk2k4s4omv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

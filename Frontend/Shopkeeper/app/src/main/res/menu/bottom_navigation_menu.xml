@@ -5,18 +5,24 @@
         android:enabled="true"
         android:icon="@drawable/ic_chart"
         android:title="Stats"/>
+
     <item
         android:id="@+id/page_2"
+        android:enabled="true"
+        android:icon="@drawable/ic_document"
+        android:title="All items"/>
+    <item
+        android:id="@+id/page_3"
         android:enabled="true"
         android:icon="@drawable/ic_subtract"
         android:title="Add item"/>
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/page_4"
         android:enabled="true"
         android:icon="@drawable/ic_order"
         android:title="Orders"/>
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/page_5"
         android:enabled="true"
         android:icon="@drawable/ic_profile"
         android:title="Profile"/>

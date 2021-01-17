@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import users.com.mealzip.NavFragments.AddFragment;
+import users.com.mealzip.NavFragments.ItemFragment;
 import users.com.mealzip.NavFragments.OrderFragment;
 import users.com.mealzip.NavFragments.ProfileFragment;
 import users.com.mealzip.NavFragments.StatsFragment;
@@ -33,14 +34,18 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.page_2:
-                    fragment= new AddFragment();
+                    fragment= new ItemFragment();
                     break;
 
                 case R.id.page_3:
-                    fragment= new OrderFragment();
+                    fragment= new AddFragment();
                     break;
 
                 case R.id.page_4:
+                    fragment= new OrderFragment();
+                    break;
+
+                case R.id.page_5:
                     fragment= new ProfileFragment();
                     break;
             }
