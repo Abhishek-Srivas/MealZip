@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="20dp"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order status"
+        android:fontFamily="@font/gilroy_bold"
+        android:textColor="#000"
+        android:textSize="18sp"/>
+
+
+    <RadioGroup
+        android:id="@+id/radiogrp1"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="4dp"
+        android:paddingVertical="15dp">
+        <RadioButton
+            android:id="@+id/pendingbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:checked="true"
+            android:textSize="17sp"
+            android:fontFamily="@font/gilroy_medium"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:id="@+id/completedbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed"
+            android:textSize="17sp"
+            android:fontFamily="@font/gilroy_medium"
+            android:layout_marginBottom="10dp"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:layout_marginRight="20dp">
+    <Button
+        android:id="@+id/cancel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:layout_marginRight="15dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/gilroy_bold"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/update_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:fontFamily="@font/gilroy_bold"
+        android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>
