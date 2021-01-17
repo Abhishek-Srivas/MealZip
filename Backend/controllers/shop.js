@@ -3,7 +3,7 @@ const Users = require("../models/shops");
 const collageSchema = require("../models/collages");
 const categorySchema = require("../models/categories");
 const orderSchema = require("../models/orders");
-const graphSchema = require("../models/graphModel")
+const graphSchema = require("../models/graphModel");
 
 /*------------------------------Shop Section-------------------------------------------*/
 exports.shopInfo = (req, res, next) => {
@@ -83,20 +83,122 @@ exports.shopOrders = async (req, res, next) => {
 
 exports.verifyOrder = async (req, res, next) => {
   const orderId = req.body.orderId;
-  const itemId =  req.body.itemId;
+  const itemId = req.body.itemId;
 
   const verifyOrder = await orderSchema.findById(orderId);
 
-  verifyOrder.ordersArray.forEach( async (element) => {
+  verifyOrder.ordersArray.forEach(async (element) => {
     console.log(element);
-    if( (element.itemId).toString() === (itemId).toString() ){
+    if (element.itemId.toString() === itemId.toString()) {
       element.isaccepted = true;
     }
-   });
-   console.log()
+  });
+  console.log();
   const verifiedOrder = await verifyOrder.save();
 
   res.json({ message: "Order Accepted", result: verifiedOrder });
 };
 
+exports.orderStatus = async (req, res, next) => {
+  const orderId = req.body.orderId;
+  const itemId = req.body.itemId;
 
+  const verifyOrder = await orderSchema.findById(orderId);
+
+  verifyOrder.ordersArray.forEach(async (element) => {
+    console.log(element);
+    if (element.itemId.toString() === itemId.toString()) {
+      element.orderStatus = "Delivered";
+    }
+  });
+  console.log();
+  const verifiedOrder = await verifyOrder.save();
+
+  res.json({ message: "Order Done", result: verifiedOrder });
+};
+
+exports.todaysTop = async (req, res, next) => {
+  const Date = req.body.Date;
+  const Id = req.body.shopId;
+  console.log(Id);
+  try {
+    const result = await graphSchema.aggregate([
+      {
+        $match: {
+          $and: [{ orderDate: { $in: [Date] } }, { shopId: { $in: [Id] } }],
+        },
+      },
+      {
+        $group: {
+          _id: "$itemId",
+          total: { $sum: "$price" },
+          itemSold: { $sum: 1 },
+          name: { $addToSet: "$itemName" },
+          rating: { $addToSet: "$rating" },
+        },
+      },
+      { $sort: { total: -1 } },
+    ]);
+
+    res.json(result);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+exports.weeklyStat = async (req, res, next) => {
+  const Id = req.body.shopId;
+  try {
+    const result = await graphSchema.aggregate([
+      { $match: { $and: [{ shopId: { $in: [Id] } }] } },
+      {
+        $group: {
+          _id: "$orderDate",
+          total: { $sum: "$price" },
+          itemSold: { $sum: 1 },
+          name: { $addToSet: "$itemName" },
+        },
+      },
+      { $sort: { _id: -1 } },
+    ]);
+
+    res.json(result);
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+exports.shopTiming = (req, res, next) => {
+  const email = req.body.email;
+  const time = req.body.time;
+  console.log(time);
+  Users.findOne({ email: email }).then((User) => {
+    User.time = time;
+    User.save().then((Result) => {
+      res.json("User Saved");
+    });
+  });
+};
+
+exports.shopDeatils = (req, res, next) => {
+  Users.findOne({ email: req.params.email }).then((User) => {
+    return res.status(200).json(User);
+  });
+};
+
+// available not available route here
+exports.availability = (req, res, next) => {
+  const email = req.body.email;
+  const itemname = req.body.itemname;
+  console.log(itemname);
+  Users.findOne({ email: email }).then((User) => {
+    User.shopItem.forEach((item) => {
+      if (item.name === itemname) {
+        item.itemsAvailable = true;
+      }
+    });
+    User.save().then((Result) => {
+      res.json("User Saved");
+    });
+  });
+};
