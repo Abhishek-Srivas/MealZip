@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".IntroUI.DetailActivity"
+android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="Fill shop details"
+        android:textColor="#000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:text="Your name"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <EditText
+        android:id="@+id/etname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/etbg"
+        android:ems="10"
+        android:fontFamily="@font/gilroy_medium"
+        android:hint="Enter shop owner's name"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewname" />
+
+    <TextView
+        android:id="@+id/textViewshopname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:text="Shop name "
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etname" />
+
+    <EditText
+        android:id="@+id/ets_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/etbg"
+        android:ems="10"
+        android:fontFamily="@font/gilroy_medium"
+        android:hint="Enter shop name"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewshopname" />
+
+    <TextView
+        android:id="@+id/textcollege"
+        android:layout_width="105dp"
+        android:layout_height="25dp"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:text="College name "
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ets_name" />
+
+    <TextView
+        android:id="@+id/tvcollege"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/etbg"
+        android:ems="10"
+        android:fontFamily="@font/gilroy_medium"
+        android:hint="Enter college name"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:fontFamily="@font/gilroy_medium"
+        android:text="( Near which college is your shop located )"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/textcollege"
+        tools:layout_editor_absoluteX="104dp" />
+
+    <RadioGroup
+        android:id="@+id/radiogrp"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/etbg"
+        android:paddingVertical="15dp">
+        <RadioButton
+            android:id="@+id/inside_col"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inside college"
+            android:checked="true"
+            android:onClick="checkbtn"
+            android:textSize="17sp"
+            android:fontFamily="@font/gilroy_medium"
+            android:layout_marginBottom="10dp"/>
+        <RadioButton
+            android:id="@+id/outside_col"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Outside college"
+            android:onClick="checkbtn"
+            android:textSize="17sp"
+            android:fontFamily="@font/gilroy_medium"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_nxt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/buttonbg"
+        android:fontFamily="@font/gilroy_bold"
+        android:padding="15dp"
+        android:stateListAnimator="@null"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="70dp"/>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="35dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/gilroy_bold"
+        android:text="Where is your shop located"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvcollege" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

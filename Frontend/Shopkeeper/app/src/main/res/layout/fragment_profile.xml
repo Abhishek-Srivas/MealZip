@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NavFragments.ProfileFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <RelativeLayout
+                android:id="@+id/rel_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/bg2"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@+id/back_arrow"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center_horizontal"
+                    android:text="CollegeScout"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:paddingLeft="5dp"/>
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_profile"
+                    android:layout_marginTop="2dp"></ImageView>
+
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardimg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/rel_layout"
+
+                app:cardCornerRadius="2dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:src="@drawable/shopbg"
+                    android:scaleType="centerCrop"
+                    />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_gradient"
+                    android:layout_gravity="bottom"
+                    android:scaleType="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:text="Coffee Shop"
+                    android:textSize="26sp"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="20dp"/>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:text="Opening and closing time"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardimg" />
+
+            <EditText
+                android:id="@+id/etwork_hrs"
+                android:drawableRight="@drawable/ic_for_arrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/etbg"
+                android:ems="10"
+                android:fontFamily="@font/gilroy_medium"
+                android:hint="Enter working hours"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:padding="15dp"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:text="Payment Method"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etwork_hrs" />
+
+            <TextView
+                android:id="@+id/tvpayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/etbg"
+                android:drawableRight="@drawable/ic_for_arrow"
+                android:ems="10"
+                android:fontFamily="@font/gilroy_medium"
+                android:hint="Setup payment method"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+                android:padding="15dp"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:text="More"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/logout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvpayment"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="123dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/bg2"
+                android:drawableLeft="@drawable/ic_union"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/gilroy_medium"
+                android:padding="12dp"
+                android:text="Log out"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvpayment" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

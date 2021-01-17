@@ -85,22 +85,6 @@ tools:context=".IntroUI.Auth.AuthFragments.OtpFragment">
         app:layout_constraintTop_toBottomOf="@+id/textView12"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!--<EditText
-        android:id="@+id/et_otp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="68dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/etbg"
-        android:ems="10"
-        android:fontFamily="@font/gilroy_medium"
-        android:hint="Enter otp"
-        android:inputType="number"
-        android:padding="15dp"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" /> -->
-
     <Button
         android:id="@+id/btn_verify"
         android:layout_width="270dp"
@@ -142,7 +126,6 @@ tools:context=".IntroUI.Auth.AuthFragments.OtpFragment">
         android:background="#B5B2B2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timer" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
