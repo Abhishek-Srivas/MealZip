@@ -186,54 +186,58 @@ public class CartFragment extends Fragment implements PaymentResultListener {
     }
 
     public void placeorder() throws JSONException {
-        b = this.getArguments();
-        if (b != null) {
-            OrderRequest orderRequest = new OrderRequest(b.getString("shopid"), b.getString("userId"), b.getString("itemid"), b.getString("name"), "28/11/20", b.getString("price"), b.getString("rating"));
-            Call<ResponseBody> call = Retroclient
-                    .getInstance()
-                    .getapi()
-                    .placeorder(orderRequest);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if (response.isSuccessful()) {
-                        Prefs.putBoolean("added", false);
-                        Prefs.putString("price", "");
-                        layout.setVisibility(View.GONE);
-                        Toasty.success(getActivity(), "Payment successful and order placed", Toast.LENGTH_LONG, true).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Toast.makeText(getActivity(), "Error occured, try again!", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-        else {
-            OrderRequest orderRequest = new OrderRequest(jsonObject.getString("shopid"), jsonObject.getString("userId"), jsonObject.getString("itemid"), jsonObject.getString("name"), "28/11/20", jsonObject.getString("price"), jsonObject.getString("rating"));
-            Call<ResponseBody> call = Retroclient
-                    .getInstance()
-                    .getapi()
-                    .placeorder(orderRequest);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    if (response.isSuccessful()) {
-                        Prefs.putBoolean("added", false);
-                        Prefs.putString("price", "");
-                        layout.setVisibility(View.GONE);
-                        Toasty.success(getActivity(), "Payment successful and order placed", Toast.LENGTH_LONG, true).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    Toast.makeText(getActivity(), "Error occured, try again!", Toast.LENGTH_SHORT).show();
-                }
-            });
-            Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
-        }
+        Prefs.putBoolean("added", false);
+        Prefs.putString("price", "");
+        layout.setVisibility(View.GONE);
+        Toasty.success(getActivity(), "Payment successful and order placed", Toast.LENGTH_LONG, true).show();
+//        b = this.getArguments();
+//        if (b != null) {
+//            OrderRequest orderRequest = new OrderRequest(b.getString("shopid"), b.getString("userId"), b.getString("itemid"), b.getString("name"), "28/11/20", b.getString("price"), b.getString("rating"));
+//            Call<ResponseBody> call = Retroclient
+//                    .getInstance()
+//                    .getapi()
+//                    .placeorder(orderRequest);
+//            call.enqueue(new Callback<ResponseBody>() {
+//                @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                    if (response.isSuccessful()) {
+//                        Prefs.putBoolean("added", false);
+//                        Prefs.putString("price", "");
+//                        layout.setVisibility(View.GONE);
+//                        Toasty.success(getActivity(), "Payment successful and order placed", Toast.LENGTH_LONG, true).show();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                    Toast.makeText(getActivity(), "Error occured, try again!", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//        }
+//        else {
+//            OrderRequest orderRequest = new OrderRequest(jsonObject.getString("shopid"), jsonObject.getString("userId"), jsonObject.getString("itemid"), jsonObject.getString("name"), "28/11/20", jsonObject.getString("price"), jsonObject.getString("rating"));
+//            Call<ResponseBody> call = Retroclient
+//                    .getInstance()
+//                    .getapi()
+//                    .placeorder(orderRequest);
+//            call.enqueue(new Callback<ResponseBody>() {
+//                @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                    if (response.isSuccessful()) {
+//                        Prefs.putBoolean("added", false);
+//                        Prefs.putString("price", "");
+//                        layout.setVisibility(View.GONE);
+//                        Toasty.success(getActivity(), "Payment successful and order placed", Toast.LENGTH_LONG, true).show();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                    Toast.makeText(getActivity(), "Error occured, try again!", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            Toast.makeText(getActivity(), "null", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override

@@ -29,7 +29,7 @@ exports.addItem = (req, res, next) => {
   const imgUrl = req.body.imgUrl;
   const isveg = req.body.isveg;
   const category = req.body.category;
-  const email = req.User.email;
+  const email = req.body.email;
   const priceArray = req.body.price; // Object required {price:"60",size:"Half"} in this syntax
   console.log(priceArray, email);
 

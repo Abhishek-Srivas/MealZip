@@ -22,6 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 import es.dmoral.toasty.Toasty;
+import in.kay.mealzip.BaseActivity;
 import in.kay.mealzip.Interface.Retroclient;
 import in.kay.mealzip.R;
 import in.kay.mealzip.Request.LoginRequest;
@@ -138,7 +139,7 @@ public class LoginFragment extends Fragment {
                         Prefs.putString("id",id);
                         Prefs.putString("name",name);
                         Toasty.success(getContext(), msg, Toast.LENGTH_LONG, true).show();
-                    //    startActivity(new Intent(getActivity(), BaseActivity.class));
+                        startActivity(new Intent(getActivity(), BaseActivity.class));
                     }
                 }
 

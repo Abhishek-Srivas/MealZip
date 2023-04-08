@@ -23,7 +23,7 @@ public class ItemRepo {
     }
 
     public MutableLiveData<List<ShoplistModel>> loaddata() {
-        String college = "college";
+        String college = "AKGEC";
         ShoplistRequest shoplistRequest= new ShoplistRequest(college);
         Call<List<ShoplistModel>> call = Retroclient.getInstance().getapi().getshops(shoplistRequest);
 

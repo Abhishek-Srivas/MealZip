@@ -66,7 +66,8 @@ exports.shopSignup = (req, res, next) => {
         });
 
       res.send("OTP SEND CHECK YOUR EMAIL");
-      return emailSender.sendemail(email, OTP);
+      console.log(OTP)
+      // return emailSender.sendemail(email, OTP);
     })
     .catch((err) => {
       console.log("here");
@@ -308,7 +309,9 @@ exports.checkResetOtp = (req, res, next) => {
   const otp = req.body.otp;
   const email = req.body.email;
   console.log(otp);
+  
   Otp.findOne({ email: email }).then((data) => {
+    console.log(data.otp)
     if (!(data.otp === otp)) {
       res.status(400).json("Otp incorrect");
     } else {

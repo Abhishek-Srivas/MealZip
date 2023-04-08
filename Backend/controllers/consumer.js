@@ -23,7 +23,10 @@ exports.placeOrder = async (req, res, next) => {
   const date = req.body.date;
   const name = req.body.name;
   
-  await orderArray.forEach( async (element) => {
+  console.log(orderArray);
+  await orderArray.forEach(element => {
+    
+  });( async (element) => {
         
     const orderGraph = new graphSchema({
       shopId:shopId,
