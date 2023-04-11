@@ -13,9 +13,10 @@ const transporter = nodemailer.createTransport(
 
 
   exports.sendemail=(email,otp) =>{
+    console.log(otp);
     transporter.sendMail({
         to: email,
-        from: "mealzip@gmail.com",
+        from: "testingyourotp@gmail.com",
         subject: "TEAM MealZip",
         html:`<h1>Your OTP is ${otp} </h1>`,
     });

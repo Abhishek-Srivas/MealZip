@@ -52,6 +52,7 @@ public class OrdersFragment extends Fragment {
         adapter.notifyDataSetChanged();
 
         List<PrevorderModel> orderlist =new ArrayList<>();
+        orderlist.add(new PrevorderModel("Samosa","4.5","veg","North Indian","20","Picked",R.drawable.samosa));
         orderlist.add(new PrevorderModel("Foodname1","4.5","veg","Chinese","150","Picked",R.drawable.chinese));
         orderlist.add(new PrevorderModel("Foodname2","5.0","veg","Italian","200","Cancelled",R.drawable.italian));
         orderlist.add(new PrevorderModel("Foodname3","4.2","veg","Dessert","220","Picked",R.drawable.dessert));

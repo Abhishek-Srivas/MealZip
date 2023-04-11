@@ -148,13 +148,13 @@ exports.login = (req, res, next) => {
         //Checking if user is verified or not
         let OTP = otpGenerator.generate(4, {
           upperCase: false,
-          specialChars: false,
+          specialChars: false,     
           alphabets: false,
         });
         res.json(
           "This Email is not verified,OTP has been sent to your email please verify"
         );
-        return emailSender.sendemail(email, OTP);
+        return emailSender.sendemail(email, OTP);    
       }
 
       bcrypt

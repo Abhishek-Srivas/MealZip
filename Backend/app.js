@@ -9,8 +9,7 @@ const consumerAuthRoutes = require("./routes/auth.consumer");
 const shopRoutes = require("./routes/shop");
 const adminRoutes = require("./routes/admin");
 const consumerRoutes = require("./routes/consumer");
-
-dotenv.config();
+require('dotenv').config();
 
 const app = express();
 
@@ -30,6 +29,7 @@ app.use((req, res, next) => {
 });
 
 //Route Middleware
+
 app.use(authRoutes);
 app.use(consumerAuthRoutes);
 app.use(shopRoutes);
@@ -53,7 +53,6 @@ app.use((err, req, res, next) => {
     },
   });
 });
-
 mongoose
   .connect(process.env.DB_CONNECT, {
     useNewUrlParser: true,
